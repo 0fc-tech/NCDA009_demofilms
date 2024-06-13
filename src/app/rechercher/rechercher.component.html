@@ -1,0 +1,49 @@
+<form id="formSearch">
+  <ion-list>
+    <ion-input id="inputTitle"
+               label="Titre"
+               label-placement="floating"
+           name="inputTitle"
+           type="text"
+           [(ngModel)]="title"/>
+    <br/>
+    <ion-input id="inputYear"
+               label="Année"
+               label-placement="floating"
+           type="number"
+           name="inputYear"
+           [(ngModel)]="year"/>
+    <br/>
+    <ion-select id="inputType"
+            name="inputType"
+              label="Type"
+              label-placement="floating"
+            [(ngModel)]="type">
+      <ion-select-option value="">Tous</ion-select-option>
+      <ion-select-option value="movie">Film</ion-select-option>
+      <ion-select-option value="series">Série</ion-select-option>
+      <ion-select-option value="episode">Episode</ion-select-option>
+    </ion-select>
+    <br/>
+    <ion-button expand="block" (click)="rechercher()">
+      Rechercher
+    </ion-button>
+    <ion-item>
+      <p *ngIf="error">
+        {{error}}
+      </p>
+    </ion-item>
+  </ion-list>
+</form>
+
+<ion-list *ngIf="films && films.length">
+  <ion-item lines="full" *ngFor="let film of films">
+    <ion-avatar slot="start">
+      <img [alt]="film.title" [src]="film.poster">
+    </ion-avatar>
+    <ion-label>{{film.title}}</ion-label>
+    <p>{{film.year}}</p>
+  </ion-item>
+</ion-list>
+
+
