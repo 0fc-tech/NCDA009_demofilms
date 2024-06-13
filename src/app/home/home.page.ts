@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
+import {IonicModule} from "@ionic/angular";
 import {RechercherComponent} from "../rechercher/rechercher.component";
 
 @Component({
@@ -7,7 +7,10 @@ import {RechercherComponent} from "../rechercher/rechercher.component";
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, RechercherComponent],
+  imports: [
+    IonicModule,
+    RechercherComponent
+  ],
 })
 export class HomePage {
   constructor() {}

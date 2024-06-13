@@ -1,19 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import {IonicModule} from "@ionic/angular";
 import {FormsModule} from "@angular/forms";
+import {IonTitle,IonContent, IonButton,IonInput,
+  IonList,IonSelect,IonSelectOption,IonItem,IonAvatar,IonLabel} from "@ionic/angular/standalone";
 import {NgForOf, NgIf} from "@angular/common";
 import {Film} from "../models/film";
 import {FilmsService} from "../providers/films.service";
+import {Router, RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-rechercher',
   templateUrl: './rechercher.component.html',
   styleUrls: ['./rechercher.component.scss'],
   imports: [
-    IonicModule,
     FormsModule,
     NgIf,
     NgForOf,
+    RouterLink,
+    IonTitle,IonContent, IonButton,IonInput,IonList,IonSelect,IonSelectOption,IonItem,
+    IonLabel,IonAvatar
   ],
   standalone: true
 })
@@ -63,7 +67,11 @@ export class RechercherComponent  implements OnInit {
       console.log(current);
     }
   }
-  constructor(private filmService :FilmsService) {}
+
+  allerVersDetail(){
+    this.router.navigate(['/detail'])
+  }
+  constructor(private filmService :FilmsService, private router: Router) {}
 
   ngOnInit() {}
 

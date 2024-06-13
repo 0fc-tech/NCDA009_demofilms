@@ -1,5 +1,5 @@
-<form id="formSearch">
-  <ion-list>
+<ion-content>
+  <ion-list id="formSearch">
     <ion-input id="inputTitle"
                label="Titre"
                label-placement="floating"
@@ -28,13 +28,15 @@
     <ion-button expand="block" (click)="rechercher()">
       Rechercher
     </ion-button>
+    <ion-button expand="block" (click)="allerVersDetail()" >
+      Allez vers détail page
+    </ion-button>
     <ion-item>
       <p *ngIf="error">
         {{error}}
       </p>
     </ion-item>
   </ion-list>
-</form>
 
 <ion-list *ngIf="films && films.length">
   <ion-item lines="full" *ngFor="let film of films">
@@ -46,4 +48,4 @@
   </ion-item>
 </ion-list>
 
-
+</ion-content>
